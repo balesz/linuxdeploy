@@ -10,12 +10,7 @@ if [[ "$INSTALL_DESTDIR" == "" ]]; then
     exit 1
 fi
 
-# use RAM disk if possible
-if [ "$CI" == "" ] && [ -d /dev/shm ]; then
-    TEMP_BASE=/dev/shm
-else
-    TEMP_BASE=/tmp
-fi
+TEMP_BASE=/tmp
 
 cleanup () {
     if [ -d "$BUILD_DIR" ]; then

@@ -3,12 +3,7 @@
 set -e
 set -x
 
-# use RAM disk if possible
-if [ "$CI" == "" ] && [ -d /dev/shm ]; then
-    TEMP_BASE=/dev/shm
-else
-    TEMP_BASE=/tmp
-fi
+TEMP_BASE=/tmp
 
 BUILD_DIR=$(mktemp -d -p "$TEMP_BASE" linuxdeploy-build-XXXXXX)
 
