@@ -10,20 +10,6 @@ if [[ "$INSTALL_DESTDIR" == "" ]]; then
     exit 1
 fi
 
-# support cross-compilation for 32-bit ISAs
-case "$ARCH" in
-    "x86_64"|"amd64")
-        ;;
-    "i386"|"i586"|"i686")
-        export CFLAGS="-m32"
-        export CXXFLAGS="-m32"
-        ;;
-    *)
-        echo "Error: unsupported architecture: $ARCH"
-        exit 1
-        ;;
-esac
-
 # use RAM disk if possible
 if [ "$CI" == "" ] && [ -d /dev/shm ]; then
     TEMP_BASE=/dev/shm
