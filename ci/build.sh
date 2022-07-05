@@ -28,9 +28,6 @@ cmake "$REPO_ROOT" -DSTATIC_BUILD=On -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_T
 
 make -j"$(nproc)"
 
-## Run Unit Tests
-ctest -V
-
 # build patchelf
 "$REPO_ROOT"/ci/build-static-patchelf.sh "$(readlink -f out/)"
 patchelf_path="$(readlink -f out/usr/bin/patchelf)"
