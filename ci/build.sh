@@ -3,23 +3,13 @@
 set -e
 set -x
 
-TEMP_BASE=/temp
-
-mkdir $TEMP_BASE
-
-BUILD_DIR=$(mktemp -d -p "$TEMP_BASE" linuxdeploy-build-XXXXXX)
-
-cleanup () {
-    if [ -d "$BUILD_DIR" ]; then
-        rm -rf "$BUILD_DIR"
-    fi
-}
-
-trap cleanup EXIT
-
 # store repo root as variable
 REPO_ROOT=$(readlink -f $(dirname $(dirname $0)))
 OLD_CWD=$(readlink -f .)
+
+BUILD_DIR=/tmp/linuxdeploy-build
+
+mkdir -p $BUILD_DIR
 
 pushd "$BUILD_DIR"
 

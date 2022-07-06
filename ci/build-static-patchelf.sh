@@ -5,22 +5,9 @@ set -x
 
 INSTALL_DESTDIR="$1"
 
-if [[ "$INSTALL_DESTDIR" == "" ]]; then
-    echo "Error: build dir $BUILD_DIR does not exist" 1>&2
-    exit 1
-fi
+BUILD_DIR=/tmp/linuxdeploy-build-patchelf
 
-TEMP_BASE=/temp
-
-cleanup () {
-    if [ -d "$BUILD_DIR" ]; then
-        rm -rf "$BUILD_DIR"
-    fi
-}
-
-trap cleanup EXIT
-
-BUILD_DIR=$(mktemp -d -p "$TEMP_BASE" linuxdeploy-build-XXXXXX)
+mkdir -p $BUILD_DIR
 
 pushd "$BUILD_DIR"
 
