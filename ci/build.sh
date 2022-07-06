@@ -3,9 +3,9 @@
 set -e
 set -x
 
-mkdir $TEMP_BASE
-
 TEMP_BASE=/temp
+
+mkdir $TEMP_BASE
 
 BUILD_DIR=$(mktemp -d -p "$TEMP_BASE" linuxdeploy-build-XXXXXX)
 
