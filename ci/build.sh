@@ -3,7 +3,7 @@
 set -e
 set -x
 
-TEMP_BASE=/tmp
+TEMP_BASE=/temp
 
 BUILD_DIR=$(mktemp -d -p "$TEMP_BASE" linuxdeploy-build-XXXXXX)
 
