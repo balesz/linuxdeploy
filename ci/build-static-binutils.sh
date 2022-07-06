@@ -10,7 +10,7 @@ if [[ "$INSTALL_DESTDIR" == "" ]]; then
     exit 1
 fi
 
-TEMP_BASE=/tmp
+TEMP_BASE=/temp
 
 cleanup () {
     if [ -d "$BUILD_DIR" ]; then
