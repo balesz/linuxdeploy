@@ -5,6 +5,8 @@ set -x
 
 TEMP_BASE=/temp
 
+mkdir $TEMP_BASE
+
 BUILD_DIR=$(mktemp -d -p "$TEMP_BASE" linuxdeploy-build-XXXXXX)
 
 cleanup () {
